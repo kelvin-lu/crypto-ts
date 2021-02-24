@@ -17,6 +17,7 @@
     "prettier": "~2.2.1",
     "rimraf": "~3.0.2",
     "ts-jest": "~26.4.4",
+    "ts-node": "^9.1.1",
     "tsutils": "~3.18.0",
     "typescript": "~4.1.3"
   },
@@ -29,7 +30,7 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
-  "author": "Jakub Synowiec <github@jakubsynowiec.info>",
+  "author": "Kelvin Lu <kellu1997@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
     "tslib": "~2.0.3"
