@@ -17,11 +17,21 @@ const hasValidWhitespace = (decodedString: string): boolean => {
     return true;
 }
 
+const VALID_CHARACTERS = new Set('abcdefghijklmnopqrstuvwxyz 0123456789'.split(''))
+const hasValidCharacters = (decodedString: string): boolean => {
+    console.log(decodedString)
+    return decodedString.split('').every(character => VALID_CHARACTERS.has(character));
+}
+
+const passesHeuristics = (decodedString: string): boolean => {
+    return hasValidCharacters(decodedString) && hasValidWhitespace(decodedString)
+}
+
 export const findCharacterCipher = (encodedStr: string): string => {
     const encodedBuf = Buffer.from(encodedStr, 'utf8')
     for (const charBuf of CHARACTER_BUFFERS) {
         const decoded = repeatingXOR(encodedBuf, charBuf).toString('utf8')
-        if (hasValidWhitespace(decoded)) {
+        if (passesHeuristics(decoded)) {
             console.log(decoded)
         }
     }
